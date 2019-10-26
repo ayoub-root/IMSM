@@ -1,0 +1,18 @@
+
+{% load crispy_forms_tags %}
+
+<form action="{{ link }}" method="post" id="formdata" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="preview"></div>
+   <input type="hidden" name="id" id="id" value="{{ id }}">  <button class="btn btn-primary updnews" id="{{ link }}">Save</button>
+</form>
+
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script>
+        $(document).ready(function() {
+            $(".updnews").click(function(){
+            	$("#formdata").ajaxForm({target: '#diagshow'});
+            });
+        });
+</script>

@@ -1,0 +1,21 @@
+
+{% load crispy_forms_tags %}
+
+<form action="{{ link }}" method="post" id="formdata" enctype="multipart/form-data">
+    {% csrf_token %}
+     <input type="text" name="userid" value="{{ request.session.user_id }}"/>
+    {{ form|crispy }}
+    <div class="preview"></div>
+    <button class="btn btn-primary createnews" id="{{ link }}">Save</button>
+
+</form>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>-->
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script>
+        $(document).ready(function() {
+         //   document.getElementsByName('userid')[0].value="{{ request.session.user_id }}";
+            $(".createnews").click(function(){
+            	$("#formdata").ajaxForm({target: '#diagshow'});
+            });
+        });
+</script>
