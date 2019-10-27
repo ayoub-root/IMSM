@@ -39,7 +39,8 @@ urlpatterns += (
     path('applications/updated/', views.dataresave, name='IMSMAPPS_applications_create'),
  #   path('applications/detail/<pk>/', views.ApplicationsDetailView.as_view(), name='IMSMAPPS_applications_detail'),
     path('applications/update/', views.dataupdate, name='IMSMAPPS_applications_update'),
-    path('application/delete/', views.datadelete, name='IMSMAPPS_projects_update'),
+    path('applications/delete/', views.datadelete, name='IMSMAPPS_projects_update'),
+    path('applications/building/', views.appsbuilding, name='IMSMAPPS_application_building'),
 )
 
 urlpatterns += (

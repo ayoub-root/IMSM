@@ -28,11 +28,24 @@
             {% for key,value in oh.items %}
 
              {% if forloop.first %}  <td data-toggle="tooltip" data-placement="top" title="{{ value }}">
-             {{ value }}   <a href="#app" id="{{ value }}" class="text-primary updobj"><i
-                        class="fa fa-fw fa-edit"></i> Edit</a> |
-                <a href="#app" class="text-danger dellobj" id="{{ value }}"
+             {{ value }}
+                 <table>
+                     <tr class="text-center">
+                         <td> <a href="#app" id="{{ value }}" class="text-primary updobj">
+                             <i class="fa fa-fw fa-edit"></i> Edit</a> </td>
+                         <td><a href="#app" class="text-danger dellobj" id="{{ value }}"
                    ><i class="fa fa-fw fa-trash "></i>
-                    Delete</a>
+                    Delete</a></td>
+               {% ifequal option 'application' %}
+       <td>
+       <a href="#app" class="text-danger build" id="{{ value }}"
+                   ><i class="fa fa-fw fa-building "></i>
+                    building</a>
+                       </td>
+     {% endifequal %}
+
+                     </tr>
+                 </table>
 
            </td>{% else %}
                 <td data-toggle="tooltip" data-placement="top" title="{{ value }}">{{ value }}</td>
@@ -45,7 +58,13 @@
 
     </tfoot>
 </table>
+ {% if option %}
+     {{ option }}
+    {% ifequal option 'application' %}
+     fff
+     {% endifequal %}
 
+{% endif %}
 {% csrf_token %}
 <script>
 
@@ -120,6 +139,34 @@
             }
         });
     });
+            /////////////////////////////////////////////////////////////
+     $('.build').on('click', function () {
+      //   var x=  confirm('get started to develop this application');
+     //    if (!x==false){}else{
+       var opt=$(this).attr("id");
+     //   alert(opt)
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+ //alert(opt+"   ddd  "+csrftoken)
+
+  $.ajax({
+            url: "{{ linkbuild }}",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'id':opt},
+
+            success: function (data) {
+                // do something
+           //     alert(data);
+                var x='';
+
+   $("#mainshow").html(data);
+
+            }
+        });
+
+//    }
+});
+     /////////////////////////////////////////////////////////////////////
 </script>
 
 

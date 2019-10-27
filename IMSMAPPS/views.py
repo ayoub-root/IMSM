@@ -33,7 +33,7 @@ def showadata(request):
                       'linkdel': "projects/delete/", 'linkupd': "projects/update/", 'option': "project"}
         if (request.POST['obj'] == "applications"):
             inputs = {'data': list(Applications.objects.values()), 'link': "applications/create/",
-                      'linkdel': "applications/delete/", 'linkupd': "applications/update/", 'option': "application"}
+                      'linkdel': "applications/delete/", 'linkupd': "applications/update/",'linkbuild': "applications/building/", 'option': "application" }
         if (request.POST['obj'] == "users"):
             inputs = {'data': list(Users.objects.values()), 'link': "users/create/", 'linkdel': "users/delete/",
                       'linkupd': "users/update/", 'option': "user"}
@@ -208,8 +208,11 @@ def dataupdate(request):
         return render(request, 'IMSMAPPS/dataupdate.html', inputs)
 
 
-def user_register(request):
-    pass
+def appsbuilding(request):
+    if request.method == 'POST':
+        print("kkkkkkkkkkkkkkkkkkkkkk " + request.POST['id'])
+    return render(request, 'IMSMAPPS/builder.html')
+    #return HttpResponse("start building application with id : " + str(request.POST['id']))
 def user_login(request):
     def authenticate(email=None, password=None):
         """ Authenticate a user based on email address as the user name. """

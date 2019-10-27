@@ -14,7 +14,7 @@ $("#connexion").on('click', function () {
 
    $('.btnmenu').on('click', function () {
        var opt=$(this).attr("id");
-        alert(opt)
+    //    alert(opt)
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
  //alert(opt+"   ddd  "+csrftoken)
         $.ajax({
@@ -54,7 +54,7 @@ $("#connexion").on('click', function () {
     });
 $(".btnmenuk").on('click', function () {
 var opt=$(this).attr('id');
-    alert(opt);
+   // alert(opt);
    var target="";
   /* switch (opt) {
        case "newproject":

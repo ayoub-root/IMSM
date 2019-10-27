@@ -19,7 +19,7 @@ class ApplicationsForm(forms.ModelForm):
     class Meta:
         model = Applications
 
-        fields = ['name', 'description', 'category', 'background']
+        fields = ['project','name', 'description', 'category', 'background']
 
 class DateInput(forms.DateInput):
     input_type = 'date'
