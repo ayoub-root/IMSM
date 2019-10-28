@@ -402,21 +402,16 @@
     <sep></sep>
     <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
-       <category name="microservice">
-  <category name="input"><block type="play_sound"></block></category>
-  <category name="inputs" colour=23>
-
-  {% for post in data.inputt %}
-
+<category name="components" colour="34">
+{% for post in d %}
  <script>
   // new_block(name,args,cmd_run,path,type,conin,conout,description)
 new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",false,true,"{{post.ms_type}}","{{post.ms_descrption}}");
  </script>
     <block type="{{post.ms_name}}"></block>
-
 {% endfor %}
   </category>
-  <category name="outputs" colour=63>
+  <category name="devices" colour=63>
   {% for post in data.outputt %}
   <script>
   new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",true,false,"{{post.ms_type}}","{{post.ms_descrption}}");
@@ -424,7 +419,16 @@ new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_l
     <block type="{{ post.ms_name }}"></block>
 {% endfor %}
   </category>
- <category name="processing" colour=123>
+  <category name="microservice" colour="180">
+{% for post in d %}
+ <script>
+  // new_block(name,args,cmd_run,path,type,conin,conout,description)
+new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",false,true,"{{post.ms_type}}","{{post.ms_descrption}}");
+ </script>
+    <block type="{{post.ms_name}}"></block>
+{% endfor %}
+  </category>
+ <category name="data" colour=123>
   {% for post in data.processs %}
 <script>
  new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",true,true,"{{post.ms_type}}","{{post.ms_descrption}}");
@@ -432,7 +436,7 @@ new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_l
     <block type="{{ post.ms_name }}"></block>
 {% endfor %}
   </category>
-  </category>
+
   </xml>
 
 </body>
