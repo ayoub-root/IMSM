@@ -36,13 +36,6 @@
                          <td><a href="#app" class="text-danger dellobj" id="{{ value }}"
                    ><i class="fa fa-fw fa-trash "></i>
                     Delete</a></td>
-               {% ifequal option 'application' %}
-       <td>
-       <a href="#app" class="text-danger build" id="{{ value }}"
-                   ><i class="fa fa-fw fa-building "></i>
-                    building</a>
-                       </td>
-     {% endifequal %}
 
                      </tr>
                  </table>
@@ -139,34 +132,10 @@
             }
         });
     });
-            /////////////////////////////////////////////////////////////
-     $('.build').on('click', function () {
-      //   var x=  confirm('get started to develop this application');
-     //    if (!x==false){}else{
-       var opt=$(this).attr("id");
-     //   alert(opt)
-        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
- //alert(opt+"   ddd  "+csrftoken)
 
-  $.ajax({
-            url: "{{ linkbuild }}",
-            type: "POST",
-           headers: {'X-CSRFToken': csrftoken},
-            data: {'id':opt},
-
-            success: function (data) {
-                // do something
-           //     alert(data);
-                var x='';
-
-   $("#mainshow").html(data);
-
-            }
-        });
-
-//    }
-});
      /////////////////////////////////////////////////////////////////////
+
+
 </script>
 
 

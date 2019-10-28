@@ -18,6 +18,7 @@
     <title>MsM Builder</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
@@ -141,7 +142,7 @@
     <div class="col-sm bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Menu </div>
       <ul  class="list-group "style="width:180px; list-style-type:circle;">
-        <li href="#" class="btn-outline-warning btn btnmenu" id="applications">building <br> application</li>
+        <li href="#" class="btn-outline-warning btn " id="build">building <br> application</li>
         <li href="#" class="btn-outline-success btn btnmenu" id="users">Users</li>
         <li href="#" class="btn-outline-success btn btnmenu" id="projects">Projects</li>
         <li href="#" class="btn-outline-success btn btnmenu" id="applications">Applications</li>
@@ -155,6 +156,7 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+          <link rel="stylesheet" href="../../static/msmst/style.css">
 
         <div class="container-fluid" id="mainshow"></div>
 
@@ -235,7 +237,7 @@
     </div>
 </section>
 <!-- End About Area -->
-
+<input type="hidden" id="lang" value="fr"/>
 <!-- Start Contact Area -->
 <section id="contact" class="section-full gray-bg">
     <div class="container">
@@ -344,7 +346,6 @@
 </div>
 <!--Modal: Login / Register Form-->
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -367,8 +368,8 @@
 
 <!-- SlimScroll -->
 
-  <script>
-    $("#menu-toggle").click(function(e) {
+  <script type="text/javascript">
+  $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });

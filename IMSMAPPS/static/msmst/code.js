@@ -104,7 +104,7 @@ Code.getStringParamFromUrl = function(name, defaultValue) {
  * @return {string} User's language.
  */
 Code.getLang = function() {
-  var lang = Code.getStringParamFromUrl('lang', '');
+  var lang = $("#lang").val();//Code.getStringParamFromUrl('lang', '');
   if (Code.LANGUAGE_NAME[lang] === undefined) {
     // Default to English.
     lang = 'en';
@@ -176,8 +176,9 @@ Code.changeLanguage = function() {
   } else {
     search = search.replace(/\?/, '?lang=' + newLang + '&');
   }
-$(document).load(location.href + "#mainshow");
-  //window.location = window.location.protocol + '//' +window.location.host + window.location.pathname ;
+
+ // window.location = window.location.protocol + '//' +window.location.host + window.location.pathname ;
+
 };
 
 /**
@@ -500,8 +501,8 @@ Code.initLanguage = function() {
   languageMenu.addEventListener('change', Code.changeLanguage, true);
 
   // Inject language strings.
-  document.title += ' ' + MSG['title'];
-  document.getElementById('title').textContent = MSG['title'];
+  //document.title += ' ' + MSG['title'];
+  document.getElementById('title').textContent = "MSM-BLOCKs";
   document.getElementById('tab_blocks').textContent = MSG['blocks'];
 
   document.getElementById('linkButton').title = MSG['linkTooltip'];
@@ -545,13 +546,4 @@ Code.discard = function() {
 };
 
 // Load the Code demo's language strings.
-
- $(document).ready(function() {
- var script1 = document.createElement('script');
-  var script2 = document.createElement('script');
-  script1.setAttribute('src', '../../static/msmst/msglang/' + Code.LANG +'.js');
-  script2.setAttribute('src', '../../static/msmst/msg/js/' + Code.LANG +'.js');
-  document.body.appendChild(script1);
-   document.body.appendChild(script2);
-  });
 

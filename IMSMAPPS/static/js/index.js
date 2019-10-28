@@ -87,3 +87,50 @@ var opt=$(this).attr('id');
     });
 
 });
+
+
+           /////////////////////////////////////////////////////////////
+     $('#build').on('click', function () {
+      //   var x=  confirm('get started to develop this application');
+     //    if (!x==false){}else{
+       var opt=$(this).attr("id");
+     //   alert(opt)
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+
+  $.ajax({
+            url: "applications/building/",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'id':opt},
+
+            success: function (data) {
+
+   $("#mainshow").html(data);
+
+            }
+        });
+
+//    }
+});
+     /////////////////////////////////////////////
+   $(document).on('change','#languageMenu', function () {
+       var x=$(this).val();
+     $("#lang").val(x)
+       // alert(x+   + $("#lang").val())
+     //  alert($("#msgis").html())
+  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+
+  $.ajax({
+            url: "applications/building/",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'id':''},
+
+            success: function (data) {
+//alert("dddddd")
+   $("#mainshow").html(data);
+
+            }
+        });});

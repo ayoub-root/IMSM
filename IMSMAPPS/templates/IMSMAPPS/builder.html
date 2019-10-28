@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Blockly Demo:</title>
-  <link rel="stylesheet" href="../../static/msmst/style.css">
-  <script src="../../static/msmst/storage.js"></script>
+ <script src="../../static/msmst/storage.js"></script>
   <script src="../../static/msmst/blockly_compressed.js"></script>
   <script src="../../static/msmst/blocks_compressed.js"></script>
   <script src="../../static/msmst/javascript_compressed.js"></script>
@@ -13,21 +11,39 @@
   <script src="../../static/msmst/php_compressed.js"></script>
   <script src="../../static/msmst/lua_compressed.js"></script>
   <script src="../../static/msmst/dart_compressed.js"></script>
-  <script src="../../static/msmst/msglang/en.js"></script>
-  <script src="../../static/msmst/msg/js/en.js"></script>
+<div id="msgis">
 
-<script src="../../static/msmst/code.js"></script>
+</div>
+    <script src="../../static/msmst/code.js"></script>
+
+
+
 </head>
 <body>
-  <table width="100%" height="100%">
-    <tr>
+  <table width="100%" height="100%"border="1">
+    <tr><td class=" right" l>
+     chosse your project : <select id="">
+         <option>sss</option>
+         <option>sss</option>
+         <option>sss</option>
+    </select></td><td class="left">
+
+       choose your application :  <select id="">
+        <option>oihoih</option>
+        <option>oihoih</option>
+        <option>oihoih</option>
+        <option>oihoih</option>
+        <option>oihoih</option>
+    </select>
+      </td></tr>
+      <tr>
       <td>
-        <h1><a href="/">Blockly</a>&rlm; &gt;
+        <h1><a href="/">MSM BUILDS YOUR IOT APPLICATION </a>&rlm;
 
           <span id="title">...</span>
         </h1>
       </td>
-      <td class="farSide">
+        <td class="farSide">
         <select id="languageMenu"></select>
       </td>
     </tr>
@@ -385,22 +401,60 @@
     <sep></sep>
     <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
+       <category name="microservice">
+  <category name="input"><block type="play_sound"></block></category>
+  <category name="inputs" colour=23>
+
+  {% for post in data.inputt %}
+
+ <script>
+  // new_block(name,args,cmd_run,path,type,conin,conout,description)
+new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",false,true,"{{post.ms_type}}","{{post.ms_descrption}}");
+ </script>
+    <block type="{{post.ms_name}}"></block>
+
+{% endfor %}
+  </category>
+  <category name="outputs" colour=63>
+  {% for post in data.outputt %}
+  <script>
+  new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",true,false,"{{post.ms_type}}","{{post.ms_descrption}}");
+</script>
+    <block type="{{ post.ms_name }}"></block>
+{% endfor %}
+  </category>
+ <category name="processing" colour=123>
+  {% for post in data.processs %}
+<script>
+ new_block ("{{post.ms_name}}","{{post.ms_args}}","{{post.ms_exec}}","{{post.ms_location}}",true,true,"{{post.ms_type}}","{{post.ms_descrption}}");
+</script>
+    <block type="{{ post.ms_name }}"></block>
+{% endfor %}
+  </category>
+  </category>
   </xml>
 
 </body>
 </html>
 
-<script type="text/javascript">
-
-
-
-
-
+<script >
 
  $(document).ready(function() {
-   //alert(Code.LANG);
-   Code.init(); // Run code console.log('Inside document ready handler ' + $('.test').length)
+
+var script1 = document.createElement('script');
+var script2 = document.createElement('script');
+script1.setAttribute('src', '../../static/msmst/msglang/' + Code.LANG +'.js');
+script2.setAttribute('src', '../../static/msmst/msg/js/' + Code.LANG +'.js');
+$("#msgis").append(script1);
+$("#msgis").append(script2);
+
+       //  ;
   });
+</script>
 
-
+<script type="text/javascript">
+ $(document).ready(function() {
+ //  alert(Code.LANG);
+   Code.init(); // Run code console.log('Inside document ready handler ' + $('.test').length)
+ });
 </script>
