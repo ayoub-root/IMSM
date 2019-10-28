@@ -21,21 +21,22 @@
 </head>
 <body>
   <table width="100%" height="100%"border="1">
-    <tr><td class=" right" l>
-     chosse your project : <select id="">
-         <option>sss</option>
-         <option>sss</option>
-         <option>sss</option>
-    </select></td><td class="left">
+    <tr><td class=" " colspan="2">
+        <table width="100%" border="2" class="left"><tr><td class="farSide">
+        chosse your project : </td><td> <select id="selectedproject">
+       {% for i in project %}
+           <option value="{{ i.p_id }}" >{{ i.name }}</option>
+            {% endfor %}
+    </select></td><td class="farSide">
 
-       choose your application :  <select id="">
-        <option>oihoih</option>
-        <option>oihoih</option>
-        <option>oihoih</option>
-        <option>oihoih</option>
-        <option>oihoih</option>
+        choose your application : </td>
+            <td> <select id="applist">
+
     </select>
-      </td></tr>
+      </td>
+      </tr></table>
+    </td>
+    </tr>
       <tr>
       <td>
         <h1><a href="/">MSM BUILDS YOUR IOT APPLICATION </a>&rlm;

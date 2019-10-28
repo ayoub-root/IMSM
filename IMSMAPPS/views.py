@@ -211,7 +211,14 @@ def dataupdate(request):
 def appsbuilding(request):
     if request.method == 'POST':
         print("kkkkkkkkkkkkkkkkkkkkkk " + request.POST['id'])
-    return render(request, 'IMSMAPPS/builder.html')
+        inputs = {'project': list(Projects.objects.values()),
+                  'components': list(Components.objects.values()),
+                  'devices': list(Devices.objects.values()),
+                  'microservices': list(Microservices.objects.values()),
+                  'data': list(Data.objects.values()),
+                  'option': "data"}
+
+    return render(request, 'IMSMAPPS/builder.html',inputs)
     #return HttpResponse("start building application with id : " + str(request.POST['id']))
 def user_login(request):
     def authenticate(email=None, password=None):
@@ -252,3 +259,11 @@ def logout(request):
     del request.session['type']
 
     return HttpResponseRedirect(reverse('index'))
+def get_apps(request):
+    if(request.method=='POST'):
+        options=[]
+        data= Applications.objects.filter(project=request.POST.get("project_id"))
+        for i in data:
+            options.append({'app_id':i.a_id,'name':i.name})
+
+    return JsonResponse((options),safe=False)

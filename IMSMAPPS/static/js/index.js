@@ -134,3 +134,28 @@ var opt=$(this).attr('id');
 
             }
         });});
+    $(document).on('change','#selectedproject', function () {
+
+        var x= $(this).val();
+//alert(x)
+          var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+            url: "applications/getproject/",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'project_id':x},
+
+            success: function (data) {
+
+              //  var datat = JSON.parse(data);
+                alert(data)
+   $.each(data, function(key,value) {
+
+       alert(value.app_id)
+
+  $("#applist").append($("<option></option>").attr("value", value.app_id).text(value.name));
+});
+
+            }
+        });
+    });
