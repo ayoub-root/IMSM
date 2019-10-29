@@ -410,7 +410,7 @@
     <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
     <sep></sep>
-       <category name="components" colour=123>
+       <category name="components" colour=50>
         {% for post in components %}
 
             <script>
@@ -419,11 +419,29 @@
 <block type="{{ post.name }}"></block>
         {% endfor %}
     </category>
-       <category name="devices" colour=123>
+       <category name="devices" colour=100>
         {% for post in devices %}
 
             <script>
                 device("{{ post.name }}","/media/{{ post.background }}");
+            </script>
+<block type="{{ post.name }}"></block>
+        {% endfor %}
+    </category>
+      <category name="microservices" colour=150>
+        {% for post in microservices %}
+
+            <script>
+                microservice("{{ post.name }}");
+            </script>
+<block type="{{ post.name }}"></block>
+        {% endfor %}
+    </category>
+      <category name="data" colour=200>
+        {% for post in data %}
+
+            <script>
+                data("{{ post.name }}");
             </script>
 <block type="{{ post.name }}"></block>
         {% endfor %}

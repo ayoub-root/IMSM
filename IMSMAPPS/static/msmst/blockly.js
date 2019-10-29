@@ -36,3 +36,35 @@
 };
 
 }          //    alert("{{ post.name }}");
+  function microservice(name) {
+
+  Blockly.Blocks[name] = {
+  init: function() {
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(false, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+}
+  function data(name) {
+
+  Blockly.Blocks[name] = {
+  init: function() {
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(false, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+}
