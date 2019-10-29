@@ -42,7 +42,7 @@ class ComponentsForm(forms.ModelForm):
 class DevicesForm(forms.ModelForm):
     class Meta:
         model = Devices
-        fields = ['component','name', 'description', 'type']
+        fields = ['component','name', 'description', 'type','background']
 
 
 class MicroservicesForm(forms.ModelForm):
