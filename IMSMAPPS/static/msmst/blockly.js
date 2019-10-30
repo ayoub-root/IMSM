@@ -1,4 +1,8 @@
-
+class Component {
+constructor(name){
+    this.name=name;
+}
+}
  //alert("ffff  ")
             function device(name,bg) {
 
@@ -19,7 +23,7 @@
 };
 
 }
-        function component(name,bg) {
+        function component(name,bg,description) {
 
   Blockly.Blocks[name] = {
 
@@ -27,14 +31,29 @@
     this.appendDummyInput()
         .setAlign(Blockly.ALIGN_CENTRE)
         .appendField(new Blockly.FieldImage(bg, 115, 115, { alt: "*", flipRtl: "TRUE"}));
+    this.appendStatementInput("NAME")
+        .setCheck(null);
     this.setPreviousStatement(false, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip(description);
  this.setHelpUrl("");
   }
 };
+Blockly.JavaScript[name] = function(block) {
+    var val;
 
+     //   alert('"'+t[i]+'"');
+        //  val = Blockly.JavaScript.valueToCode(block, '', Blockly.JavaScript.ORDER_ATOMIC);
+
+ return 'new Component("'+name+'");'+'\n';
+};
+
+   Blockly.Python[name] = function(block) {
+
+
+  return 'component_("'+name+'")\n';
+};
 }          //    alert("{{ post.name }}");
   function microservice(name) {
 

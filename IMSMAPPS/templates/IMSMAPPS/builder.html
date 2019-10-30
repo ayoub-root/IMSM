@@ -414,7 +414,7 @@
         {% for post in components %}
 
             <script>
-                component("{{ post.name }}", "/media/{{ post.background }}");
+                component("{{ post.name }}", "/media/{{ post.background }}","{{ post.description }}");
             </script>
             <block type="{{ post.name }}"></block>
         {% endfor %}
@@ -429,11 +429,19 @@
         {% endfor %}
     </category>
     <category name="microservices" colour=150>
-    <category name="MS-input" colour="160">
+        {% for post in microservices %}
+
+                <script>
+                    microservice("{{ post.name }}");
+                </script>
+                <block type="{{ post.name }}"></block>
+
+        {% endfor %}
+    <!--<category name="MS-input" colour="160">
          {% for post in microservices %}
             {% ifequal post.category  "input" %}
                 <script>
-                    microservice("{{ post.name }}");
+                    microservice("{{ post.name }}","{{ post.category }}");
                 </script>
                 <block type="{{ post.name }}"></block>
             {% endifequal %}
@@ -444,7 +452,7 @@
          {% for post in microservices %}
             {% ifequal post.category  "inoutput" %}
                 <script>
-                    microservice("{{ post.name }}");
+                    microservice("{{ post.name }}","{{ post.category }}");
                 </script>
                 <block type="{{ post.name }}"></block>
             {% endifequal %}
@@ -455,12 +463,12 @@
          {% for post in microservices %}
             {% ifequal post.category  "output" %}
                 <script>
-                    microservice("{{ post.name }}");
+                    microservice("{{ post.name }}","{{ post.category }}");
                 </script>
                 <block type="{{ post.name }}"></block>
             {% endifequal %}
         {% endfor %}
-    </category>
+    </category>-->
     </category>
     <category name="data" colour=200>
         {% for post in data %}
