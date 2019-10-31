@@ -7,6 +7,7 @@ class Device {
 constructor(name){
     this.name=name;
 }}
+var i =0;
  //alert("ffff  ")
             function device(name,bg,description) {
 
@@ -26,7 +27,7 @@ constructor(name){
   }
 };
 Blockly.JavaScript[name] = function(block) {
- return 'new Device("'+name+'");'+'\n';
+ return 'var d'+(i++)+' = devices("'+name+'");'+'\n';
 };
 Blockly.Python[name] = function(block) {
   return 'device_("'+name+'")\n';
@@ -52,10 +53,10 @@ Blockly.Python[name] = function(block) {
 Blockly.JavaScript[name] = function(block) {
      var text = Blockly.JavaScript.statementToCode(block, 'NAME',
       Blockly.JavaScript.ORDER_MEMBER) || '\'\'';
- return 'new Component("'+name+'");'+'\n'+"{ "+text+" }";
+ return 'function components("'+name+'")'+'\n'+'{\n '+text+'}';
 };
 Blockly.Python[name] = function(block) {
-  return 'component_("'+name+'")\n';
+  return 'def component_("'+name+'"):\n';
 };
 }          //    alert("{{ post.name }}");
   function microservice(name) {
