@@ -1,10 +1,14 @@
 class Component {
 constructor(name){
     this.name=name;
-}
-}
+}}
+////////////////////////
+class Device {
+constructor(name){
+    this.name=name;
+}}
  //alert("ffff  ")
-            function device(name,bg) {
+            function device(name,bg,description) {
 
   Blockly.Blocks[name] = {
   init: function() {
@@ -17,11 +21,16 @@ constructor(name){
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip(description);
  this.setHelpUrl("");
   }
 };
-
+Blockly.JavaScript[name] = function(block) {
+ return 'new Device("'+name+'");'+'\n';
+};
+Blockly.Python[name] = function(block) {
+  return 'device_("'+name+'")\n';
+};
 }
         function component(name,bg,description) {
 
@@ -41,17 +50,11 @@ constructor(name){
   }
 };
 Blockly.JavaScript[name] = function(block) {
-    var val;
-
-     //   alert('"'+t[i]+'"');
-        //  val = Blockly.JavaScript.valueToCode(block, '', Blockly.JavaScript.ORDER_ATOMIC);
-
- return 'new Component("'+name+'");'+'\n';
+     var text = Blockly.JavaScript.statementToCode(block, 'NAME',
+      Blockly.JavaScript.ORDER_MEMBER) || '\'\'';
+ return 'new Component("'+name+'");'+'\n'+"{ "+text+" }";
 };
-
-   Blockly.Python[name] = function(block) {
-
-
+Blockly.Python[name] = function(block) {
   return 'component_("'+name+'")\n';
 };
 }          //    alert("{{ post.name }}");
@@ -70,6 +73,7 @@ Blockly.Blocks[name] = {
  this.setHelpUrl("");
   }
 };
+
 
 
 }

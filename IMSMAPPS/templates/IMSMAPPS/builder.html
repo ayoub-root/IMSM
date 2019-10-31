@@ -423,7 +423,7 @@
         {% for post in devices %}
 
             <script>
-                device("{{ post.name }}", "/media/{{ post.background }}");
+                device("{{ post.name }}", "/media/{{ post.background }}","{{ post.description }}");
             </script>
             <block type="{{ post.name }}"></block>
         {% endfor %}
