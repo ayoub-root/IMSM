@@ -523,6 +523,8 @@ Code.runJS = function() {
     }
   };
   var code = Blockly.JavaScript.workspaceToCode(Code.workspace);
+  var pycode = Blockly.Python.workspaceToCode(Code.workspace);
+
   Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
   try {
     eval(code);

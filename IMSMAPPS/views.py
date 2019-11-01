@@ -217,7 +217,6 @@ def appsbuilding(request):
                   'microservices': list(Microservices.objects.values()),
                   'data': list(Data.objects.values()),
                   'option': "data"}
-
     return render(request, 'IMSMAPPS/builder.html',inputs)
     #return HttpResponse("start building application with id : " + str(request.POST['id']))
 def user_login(request):
@@ -267,3 +266,6 @@ def get_apps(request):
             options.append({'app_id':i.a_id,'name':i.name})
 
     return JsonResponse((options),safe=False)
+def runtime(request):
+
+    return HttpResponse(request.POST.get('code')+" running ... plz wait :)")

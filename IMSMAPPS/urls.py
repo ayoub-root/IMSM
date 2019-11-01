@@ -106,5 +106,7 @@ urlpatterns += (
     path('user/login/', views.user_login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('apps/', views.apps.as_view(), name='apps'),
+    path('runtime/', views.runtime, name='apps'),
+
 
 )

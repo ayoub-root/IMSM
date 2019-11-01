@@ -35,7 +35,7 @@ $("#connexion").on('click', function () {
 
     $('.refresh').on('click', function () {
        var opt=$(this).attr("id");
-        alert(opt)
+     //   alert(opt)
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
  //alert(opt+"   ddd  "+csrftoken)
         $.ajax({
@@ -159,3 +159,31 @@ var opt=$(this).attr('id');
             }
         });
     });
+    //////////////////////////////////////////////////
+   $(document).on('click','#runButton', function () {
+      // var x=$(this).val();
+        alert( $("#lang").val())
+     //  alert($("#msgis").html())
+        var pycode = Blockly.Python.workspaceToCode(Code.workspace);
+      //  alert(pycode)
+  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+ $("#modalLRForm").modal();
+    $("#modal-title").html("runtime ...");
+
+  $.ajax({
+            url: "/runtime/",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'id':'','code':pycode},
+
+            success: function (data) {
+//alert("dddddd")
+//   $("#mainshow").html(data);
+
+    //    alert(data);
+        $("#diagshow").html(data);
+
+
+            }
+        });});

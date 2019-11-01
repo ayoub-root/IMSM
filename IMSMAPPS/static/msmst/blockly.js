@@ -59,7 +59,7 @@ Blockly.Python[name] = function(block) {
   return 'def component_("'+name+'"):\n';
 };
 }          //    alert("{{ post.name }}");
-  function microservice(name) {
+  function microservice(name,id) {
 
 Blockly.Blocks[name] = {
   init: function() {
@@ -73,6 +73,14 @@ Blockly.Blocks[name] = {
  this.setTooltip("");
  this.setHelpUrl("");
   }
+};
+Blockly.JavaScript[name] = function(block) {
+     var text = Blockly.JavaScript.valueToCode(block, 'NAME',
+      Blockly.JavaScript.ORDER_MEMBER) || '\'\'';
+ return ' ms_('+name+' , '+id+' , '+text+');\n';
+};
+Blockly.Python[name] = function(block) {
+ return ' ms_('+name+')\n';
 };
 
 

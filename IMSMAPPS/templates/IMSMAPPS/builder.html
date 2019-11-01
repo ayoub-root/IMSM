@@ -432,7 +432,7 @@
         {% for post in microservices %}
 
                 <script>
-                    microservice("{{ post.name }}");
+                    microservice("{{ post.name }}","{{ post.m_id }}");
                 </script>
                 <block type="{{ post.name }}"></block>
 
