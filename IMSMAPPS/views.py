@@ -267,5 +267,5 @@ def get_apps(request):
 
     return JsonResponse((options),safe=False)
 def runtime(request):
-
-    return HttpResponse(request.POST.get('code')+" running ... plz wait :)")
+    data={'data':request.POST.get('code')+" running ... plz wait :)"}
+    return render(request,'IMSMAPPS/myapp.html',data)

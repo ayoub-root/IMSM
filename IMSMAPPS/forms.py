@@ -43,13 +43,23 @@ class DevicesForm(forms.ModelForm):
     class Meta:
         model = Devices
         fields = ['component','name', 'description', 'type','background']
+        Options = [
+                ('sensor', 'sensor'),
+                ('actuator', 'actuator'),
+            ]
+        type = forms.ChoiceField(label='Category', widget=forms.Select, choices=Options)
 
 
 class MicroservicesForm(forms.ModelForm):
     class Meta:
         model = Microservices
-        fields = ['device','name', 'description', 'url', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs']
+        fields = ['device','name', 'description', 'endpoint','type', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs']
 
+    Options = [
+        ('backend', 'server side'),
+        ('frontend', 'client side'),
+    ]
+    type = forms.ChoiceField(label='Category', widget=forms.Select, choices=Options)
 
 class DataForm(forms.ModelForm):
     class Meta:

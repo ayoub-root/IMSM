@@ -88,9 +88,9 @@ class MicroservicesAdminForm(forms.ModelForm):
 
 class MicroservicesAdmin(admin.ModelAdmin):
     form = MicroservicesAdminForm
-    list_display = ['m_id', 'name', 'description', 'url', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs',
+    list_display = ['m_id', 'name', 'description', 'endpoint','type', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs',
                     'created', 'last_updated']
-    readonly_fields = ['m_id', 'name', 'description', 'url', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs',
+    readonly_fields = ['m_id', 'name', 'description', 'endpoint','type', 'cmd', 'creator', 'users', 'category', 'inputs', 'outputs',
                        'created', 'last_updated']
 
 
