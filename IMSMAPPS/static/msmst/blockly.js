@@ -86,6 +86,61 @@ Blockly.Python[name] = function(block) {
 
 
 }
+
+function microservices(name,id, argss, description) {
+   //  alert(""+name);
+    //   var code = '{"name":'+name+',"cmd_run":'+cmd_run+',"args":,"path":'+path+',"type":'+type+'}';
+    //alert("ssss");
+ var args= [];
+ var msg="";
+
+ var t= ['jjj','hhhh','kkkk','llll'];
+
+
+
+
+ for (var i in t){
+    // alert('"'+t[i]+'"');
+    args.push({"type":"input_value","name":'"'+t[i]+'"',"align": "RIGHT"});
+     msg+= t[i]+"%"+(+i+1)+" ";
+ }
+//alert(msg);
+//alert(args[2].name);
+    var data = {
+        "message0": name +"   " + msg,
+        "args0":args
+    }
+    Blockly.Blocks[name] = {
+        init: function () {
+
+            this.jsonInit(data);
+          this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip(description);
+ this.setHelpUrl("");
+        }
+    };
+Blockly.JavaScript[name] = function(block) {
+    var val=[];
+    for (i in t){
+     //   alert('"'+t[i]+'"');
+          val[i] = Blockly.JavaScript.valueToCode(block, '"'+t[i]+'"', Blockly.JavaScript.ORDER_ATOMIC);
+    }
+
+ return 'jsmicroservice__("'+name+'",' + val + ');\n';
+};
+
+   Blockly.Python[name] = function(block) {
+    var val=[];
+    for (i in t){
+     //   alert('"'+t[i]+'"');
+          val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
+    }
+
+  return 'self.pymicroservice__("'+name+'",' + val + ');\n';
+};
+}
   function data(name) {
 
   Blockly.Blocks[name] = {

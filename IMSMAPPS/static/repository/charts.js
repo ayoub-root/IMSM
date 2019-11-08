@@ -14,7 +14,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 
 
 	chart.render();
-};
+
 
 updateChart(dataLength);
 setInterval(function(){updateChart(20)}, updateInterval);
