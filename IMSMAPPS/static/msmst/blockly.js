@@ -128,7 +128,7 @@ Blockly.JavaScript[name] = function(block) {
           val[i] = Blockly.JavaScript.valueToCode(block, '"'+t[i]+'"', Blockly.JavaScript.ORDER_ATOMIC);
     }
 
- return 'jsmicroservice__("'+name+'",' + val + ');\n';
+ return 'chart("'+name+'",' + val + ');\n';
 };
 
    Blockly.Python[name] = function(block) {
