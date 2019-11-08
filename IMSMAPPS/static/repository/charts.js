@@ -1,5 +1,5 @@
-function chart(type,parameters, data){
-
+function chart(type, data){
+alert(data)
 var dps = []; // dataPoints
 	var dataa=[];
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -9,7 +9,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY: {
 		includeZero: false
 	},
-	data: dataa
+	data: data
 });
 
 var xVal = 0;
@@ -30,9 +30,7 @@ var updateChart = function (count) {
 
 	}
 
-	if (dps.length > dataLength) {
-	//	dps.shift();
-	}
+
 
 	chart.render();
 };

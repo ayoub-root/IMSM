@@ -94,7 +94,7 @@ function microservices(name,id, argss, description) {
  var args= [];
  var msg="";
 
- var t= ['jjj','hhhh','kkkk','llll'];
+ var t= argss.split(",");//['jjj','hhhh','kkkk','llll'];
 
 
 
@@ -128,7 +128,7 @@ Blockly.JavaScript[name] = function(block) {
           val[i] = Blockly.JavaScript.valueToCode(block, '"'+t[i]+'"', Blockly.JavaScript.ORDER_ATOMIC);
     }
 
- return 'chart("'+name+'",' + val + ');\n';
+ return name+'(' + val + ');\n';
 };
 
    Blockly.Python[name] = function(block) {
