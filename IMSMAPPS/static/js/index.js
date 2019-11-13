@@ -182,8 +182,12 @@ var opt=$(this).attr('id');
 //   $("#mainshow").html(data);
 
     //    alert(data);
-        $("#diagshow").html(data);
+                var code =(Blockly.JavaScript.workspaceToCode(Code.workspace))
 
+        $("#diagshow").html(data+"<script>"+code+"<script/>");
+
+eval(code)
+                alert(code);
 
             }
         });});

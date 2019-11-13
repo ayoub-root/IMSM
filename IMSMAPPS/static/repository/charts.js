@@ -1,5 +1,5 @@
 function chart(type, data){
-alert(data)
+alert(data[1])
 var dps = []; // dataPoints
 	var dataa=[];
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -9,7 +9,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY: {
 		includeZero: false
 	},
-	data: data
+	data: dps
 });
 
 var xVal = 0;
@@ -24,8 +24,8 @@ var updateChart = function (count) {
 	for (var j = 0; j < count; j++) {
 		//yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
 		dps.push({
-			x: data[0],
-			y: data[1]
+			x: 33,//data[0],
+			y: 334//data[1]+Math.round(5 + Math.random() *(-5-5))
 		});
 
 	}

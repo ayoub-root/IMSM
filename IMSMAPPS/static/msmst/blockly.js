@@ -127,7 +127,7 @@ Blockly.JavaScript[name] = function(block) {
      //   alert('"'+t[i]+'"');
           val[i] = Blockly.JavaScript.valueToCode(block, '"'+t[i]+'"', Blockly.JavaScript.ORDER_ATOMIC);
     }
-
+//alert(val)
  return name+'(' + val + ');\n';
 };
 
@@ -135,7 +135,7 @@ Blockly.JavaScript[name] = function(block) {
     var val=[];
     for (i in t){
      //   alert('"'+t[i]+'"');
-          val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
+        //  val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
     }
 
   return 'self.pymicroservice__("'+name+'",' + val + ');\n';
