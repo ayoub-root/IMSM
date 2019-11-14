@@ -184,7 +184,7 @@ var opt=$(this).attr('id');
     //    alert(data);
                 var code =(Blockly.JavaScript.workspaceToCode(Code.workspace))
 
-        $("#diagshow").html(data+"<script>"+code+"<script/>");
+        $("#diagshow").html("<script>"+code+"<script/>"+data);
 
 eval(code)
                 alert(code);

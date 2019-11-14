@@ -9,13 +9,13 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY: {
 		includeZero: false
 	},
-	data: dps
+	data: [{type: type, dataPoints:dps}]
 });
 
 var xVal = 0;
 var yVal = 100;
 var updateInterval = 1000;
-var dataLength = 20; // number of dataPoints visible at any point
+var dataLength = 200; // number of dataPoints visible at any point
 
 var updateChart = function (count) {
 
@@ -24,8 +24,8 @@ var updateChart = function (count) {
 	for (var j = 0; j < count; j++) {
 		//yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
 		dps.push({
-			x: 33,//data[0],
-			y: 334//data[1]+Math.round(5 + Math.random() *(-5-5))
+			x: data[0]+Math.round(5 + Math.random() *(-5-5)),
+			y: data[1]+Math.round(5 + Math.random() *(-5-5))
 		});
 
 	}
@@ -36,6 +36,6 @@ var updateChart = function (count) {
 };
 
 updateChart(dataLength);
-setInterval(function(){updateChart(20)}, updateInterval);
+setInterval(function(){updateChart(200)}, updateInterval);
 
 }
