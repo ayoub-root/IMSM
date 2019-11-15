@@ -87,18 +87,10 @@ Blockly.Python[name] = function(block) {
 
 }
 
-function microservices(name,id, argss, description) {
-   //  alert(""+name);
-    //   var code = '{"name":'+name+',"cmd_run":'+cmd_run+',"args":,"path":'+path+',"type":'+type+'}';
-    //alert("ssss");
+function microservices(name,id,type, argss, description) {
  var args= [];
  var msg="";
-
  var t= argss.split(",");//['jjj','hhhh','kkkk','llll'];
-
-
-
-
  for (var i in t){
     // alert('"'+t[i]+'"');
     args.push({"type":"input_value","name":'"'+t[i]+'"',"align": "RIGHT"});
@@ -121,16 +113,17 @@ function microservices(name,id, argss, description) {
  this.setHelpUrl("");
         }
     };
-Blockly.JavaScript[name] = function(block) {
-    var val=[];
-    for (i in t){
-     //   alert('"'+t[i]+'"');
-          val[i] = Blockly.JavaScript.valueToCode(block, '"'+t[i]+'"', Blockly.JavaScript.ORDER_ATOMIC);
-    }
+ if (type="frontend") {
+     Blockly.JavaScript[name] = function (block) {
+         var val = [];
+         for (i in t) {
+             //   alert('"'+t[i]+'"');
+             val[i] = Blockly.JavaScript.valueToCode(block, '"' + t[i] + '"', Blockly.JavaScript.ORDER_ATOMIC);
+         }
 //alert(val)
- return name+'(' + val + ');\n';
-};
-
+         return name + '(' + val + ');\n';
+     };
+ }else if(type=="backend"){
    Blockly.Python[name] = function(block) {
     var val=[];
     for (i in t){
@@ -139,7 +132,7 @@ Blockly.JavaScript[name] = function(block) {
     }
 
   return 'self.pymicroservice__("'+name+'",' + val + ');\n';
-};
+};}
 }
   function data(name) {
 

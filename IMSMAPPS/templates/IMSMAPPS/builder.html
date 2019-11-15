@@ -434,7 +434,7 @@
         {% for post in microservices %}
 
                 <script>
-                    microservices("{{ post.name }}","{{ post.m_id }}","{{ post.inputs }}","{{ post.description }}");
+                    microservices("{{ post.name }}","{{ post.m_id }}","{{ post.type }}","{{ post.inputs }}","{{ post.description }}");
                 </script>
                 <block type="{{ post.name }}"></block>
 
