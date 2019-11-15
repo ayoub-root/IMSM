@@ -181,12 +181,11 @@ var opt=$(this).attr('id');
 //alert("dddddd")
 //   $("#mainshow").html(data);
 
-    //    alert(data);
-                var code =(Blockly.JavaScript.workspaceToCode(Code.workspace))
+    var code =(Blockly.JavaScript.workspaceToCode(Code.workspace))
 
-        $("#diagshow").html("<script>"+code+"<script/>"+data);
+        $("#diagshow").html(data+"<script>"+code+"</script>");
 
-eval(code)
+
                 alert(code);
 
             }

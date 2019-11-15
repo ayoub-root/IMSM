@@ -116,8 +116,11 @@ BlocklyStorage.makeRequest_ = function(url, name, content, workspace) {
   BlocklyStorage.httpRequest_.onreadystatechange =
       BlocklyStorage.handleRequest_;
   BlocklyStorage.httpRequest_.open('POST', url);
+  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
   BlocklyStorage.httpRequest_.setRequestHeader('Content-Type',
       'application/x-www-form-urlencoded');
+  BlocklyStorage.httpRequest_.setRequestHeader('X-CSRFToken', csrftoken);
   BlocklyStorage.httpRequest_.send(name + '=' + encodeURIComponent(content));
   BlocklyStorage.httpRequest_.workspace = workspace;
 };

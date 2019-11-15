@@ -269,3 +269,7 @@ def get_apps(request):
 def runtime(request):
     data={'data':request.POST.get('code')+" running ... plz wait :)"}
     return render(request,'IMSMAPPS/myapp.html',data)
+def storage(request):
+    data={'data':request}
+    print(request.encoding)
+    return HttpResponse(data)

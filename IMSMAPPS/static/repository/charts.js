@@ -1,7 +1,7 @@
 function chart(type, data){
-alert(data[1])
+//alert(data[1])
 var dps = []; // dataPoints
-	var dataa=[];
+
 var chart = new CanvasJS.Chart("chartContainer", {
 	title :{
 		text: "Dynamic Data"
