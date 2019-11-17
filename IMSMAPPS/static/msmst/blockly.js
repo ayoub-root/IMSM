@@ -96,7 +96,7 @@ function microservices(name,id,type, argss, description) {
     args.push({"type":"input_value","name":'"'+t[i]+'"',"align": "RIGHT"});
      msg+= t[i]+"%"+(+i+1)+" ";
  }
-//alert(msg);
+//alert(type);
 //alert(args[2].name);
     var data = {
         "message0": name +"   " + msg,
@@ -113,7 +113,8 @@ function microservices(name,id,type, argss, description) {
  this.setHelpUrl("");
         }
     };
- if (type="frontend") {
+ if (type==="frontend") {
+     alert(type+type.length)
      Blockly.JavaScript[name] = function (block) {
          var val = [];
          for (i in t) {
@@ -123,16 +124,22 @@ function microservices(name,id,type, argss, description) {
 //alert(val)
          return name + '(' + val + ');\n';
      };
- }else if(type=="backend"){
+     Blockly.Python[name]= function (block) {return "";};
+ }
+ if(type==="backend"){
    Blockly.Python[name] = function(block) {
     var val=[];
     for (i in t){
      //   alert('"'+t[i]+'"');
-        //  val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
+         val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
     }
 
-  return 'self.pymicroservice__("'+name+'",' + val + ');\n';
+  return 'pymicroservice("'+name+'","'+id+'",' + val + ')\n';
+};
+   Blockly.JavaScript[name]=function (block) { return"";
+
 };}
+
 }
   function data(name) {
 
