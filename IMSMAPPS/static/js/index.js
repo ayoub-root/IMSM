@@ -164,8 +164,8 @@ var opt=$(this).attr('id');
       // var x=$(this).val();
         alert( $("#lang").val())
      //  alert($("#msgis").html())
-        var pycode = Blockly.JavaScript.workspaceToCode(Code.workspace);
-      //  alert(pycode)
+        var pycode = Blockly.Python.workspaceToCode(Code.workspace);
+        alert(pycode)
   var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 
  $("#modalLRForm").modal();

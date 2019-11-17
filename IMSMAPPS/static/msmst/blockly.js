@@ -129,12 +129,14 @@ function microservices(name,id,type, argss, description) {
  if(type==="backend"){
    Blockly.Python[name] = function(block) {
     var val=[];
+    var kwargs={};
     for (i in t){
      //   alert('"'+t[i]+'"');
+        kwargs[i]=Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC)
          val[i] = Blockly.Python.valueToCode(block, '"'+t[i]+'"', Blockly.Python.ORDER_ATOMIC);
     }
 
-  return 'pymicroservice("'+name+'","'+id+'",' + val + ')\n';
+  return 'pymicroservice("'+name+'","'+id+'",' + val + ','+kwargs+')\n';
 };
    Blockly.JavaScript[name]=function (block) { return"";
 
