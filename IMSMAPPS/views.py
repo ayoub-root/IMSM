@@ -268,12 +268,14 @@ def get_apps(request):
     return JsonResponse((options),safe=False)
 def runtime(request):
     code=request.POST.get('code')
-    print(list(code))
+    print((code))
+    exec(code)
     data={'data':code+" running ... plz wait :)"}
 
     return render(request,'IMSMAPPS/myapp.html',data)
-def pymicroservice(code):
-    exec()
+def pymicroservice(*argv, **kwargs):
+    print("run service : "+str(argv[0])+' with option : '+str(kwargs['args']))
+
 def storage(request):
     data={'data':request}
     print(request.encoding)
