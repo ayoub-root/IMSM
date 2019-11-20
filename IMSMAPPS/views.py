@@ -273,9 +273,8 @@ def runtime(request):
     data={'data':code+" running ... plz wait :)"}
 
     return render(request,'IMSMAPPS/myapp.html',data)
-def pymicroservice(*argv, **kwargs):
-    print("run service : "+str(argv[0])+' with option : '+str(kwargs['args']))
-ssoijzzujui_yhh
+
+
 def storage(request):
     data={'data':request}
     print(request.encoding)
