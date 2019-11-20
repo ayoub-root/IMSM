@@ -1,18 +1,9 @@
 import uuid
-import time
-from importlib import import_module
-
-from django import forms
-from django.contrib.messages.storage import session
-from django.http import request
 
 from django.urls import reverse
 from django.contrib.contenttypes.models import ContentType
 from django.db import models as models
-#from requests import Session
 from django.contrib.sessions.models import Session
-
-from IMSM import settings
 
 
 def upld(instance, filename):
