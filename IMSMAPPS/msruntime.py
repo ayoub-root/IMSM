@@ -1,4 +1,29 @@
 import paho.mqtt.client as mqtt
+#from pip._vendor import requests
+from django.contrib.sites import requests
+import json
+from django.http import request
+
+
+
+def pymicroservice(*argv, **kwargs):
+    print("run service : " + str(argv[0]) + ' with option : ' + str(kwargs['args']))
+    import os, django
+    import urllib.request
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
+    django.setup()
+    from .models import Microservices
+    service = Microservices.objects.get(m_id=argv[1])
+    endpoint = service.endpoint
+
+   # print(service.cmd)
+    serialized_data = urllib.request.urlopen(str("http://127.0.0.1:8000/microservices/"+service.m_id+"/"))
+
+    data = json.load(serialized_data)
+    print(data)
+    return (data)
+
+
 class msruntime():
     def __init__(self):
         self.client = mqtt.Client("sss")
@@ -7,16 +32,10 @@ class msruntime():
 
 
 
-    def pymicroservice(*argv, **kwargs):
-        print("run service : " + str(argv[0]) + ' with option : ' + str(kwargs['args']))
-        import os, django
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
-        django.setup()
-        from .models import Microservices
-        service = Microservices.objects.get(m_id=argv[1])
-        endpoint= service.endpoint
 
-        print(service.cmd)
+
+
+
 
 
     def get_ms(self):
@@ -51,8 +70,11 @@ if __name__== "__main__":
 
 
     a=msruntime()
-    a.get_ms()
-    a.run_ms()
+    #a.get_ms()
+   # a.run_ms()
 
 
     print("sss")
+
+
+

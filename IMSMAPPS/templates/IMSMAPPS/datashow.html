@@ -28,7 +28,7 @@
             {% for key,value in oh.items %}
 
              {% if forloop.first %}  <td data-toggle="tooltip" data-placement="top" title="{{ value }}">
-             {{ value }}
+             <a class="objid" id="{{ value }}">{{ value }}</a>
                  <table>
                      <tr class="text-center">
                          <td> <a href="#app" id="{{ value }}" class="text-primary updobj">
@@ -134,7 +134,30 @@
     });
 
      /////////////////////////////////////////////////////////////////////
+          $('.objid').on('click', function () {
+       var opt=$(this).attr("id");
+        alert(opt)
 
+    $("#modalLRForm").modal();
+        $("#modal-title").html("update  {{ option }} ");
+                var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+ //alert(opt+"   ddd  "+csrftoken)
+       $.ajax({
+            url: "/{{ option }}s/"+opt+"/",
+            type: "POST",
+           headers: {'X-CSRFToken': csrftoken},
+            data: {'obj':"{{ option }}",'pk':opt},
+            dataType: "text",
+            success: function (data) {
+                // do something
+             //   alert(data)
+  $("#diagshow").html(data);
+
+
+            }
+        });
+    });
+////////////////////////////////////////////////////////////////////////////
 
 </script>
 

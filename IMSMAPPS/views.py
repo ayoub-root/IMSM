@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, UpdateView, CreateView
 from django.views.generic.base import TemplateView
-
+from IMSMAPPS.msruntime import  pymicroservice
 from IMSMAPPS import forms
 from .models import Projects, Applications, Users, Components, Devices, Microservices, Data
 from .forms import ProjectsForm, ApplicationsForm, UsersForm, ComponentsForm, DevicesForm, MicroservicesForm, DataForm
@@ -172,7 +172,9 @@ def datadelete(request):
         else:
             return JsonResponse({'error':form.errors})
 
-
+def objctmnger(request,id):
+  #  pymicroservice()
+    return JsonResponse(str(id)+"", safe=False)
 def dataupdate(request):
     if request.method == 'POST':
         print("qqqqqqqqq " + request.POST['obj'] + "  " + request.POST['pk'])
@@ -268,7 +270,7 @@ def get_apps(request):
     return JsonResponse((options),safe=False)
 def runtime(request):
     code=request.POST.get('code')
-    print((code))
+    print(str("ssss"+code+"aaaaaaa"))
     exec(code)
     data={'data':code+" running ... plz wait :)"}
 

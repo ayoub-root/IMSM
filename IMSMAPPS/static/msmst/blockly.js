@@ -138,7 +138,7 @@ function microservices(name,id,type, argss, description) {
 
   return 'pymicroservice("'+name+'","'+id+'"'+',args={'+kwargs+'})\n';
 };
-   Blockly.JavaScript[name]=function (block) { return"";
+   Blockly.JavaScript[name]=function (block) { return "$('#ssss').append('<div id=\"sss\">"+name+"</div>')";
 
 };}
 

@@ -66,6 +66,7 @@ urlpatterns += (
    # path('components/delete/<pk>/', views.ComponentsDetailView.as_view(), name='IMSMAPPS_components_detail'),
     path('components/update/', views.dataupdate, name='IMSMAPPS_components_update'),
     path('components/delete/', views.datadelete, name='IMSMAPPS_projects_update'),
+    path('components/<id>/', views.objctmnger, name='IMSMAPPS_projects_update'),
 )
 
 urlpatterns += (
@@ -77,6 +78,8 @@ urlpatterns += (
    # path('devices/detail/<pk>/', views.DevicesDetailView.as_view(), name='IMSMAPPS_devices_detail'),
     path('devices/update/', views.dataupdate, name='IMSMAPPS_devices_update'),
     path('devices/delete/', views.datadelete, name='IMSMAPPS_projects_update'),
+    ##############################################################################"""
+    path('devices/<id>/', views.objctmnger, name='IMSMAPPS_projects_update'),
 )
 
 urlpatterns += (
@@ -88,6 +91,7 @@ urlpatterns += (
   #  path('microservices/detail/<pk>/', views.MicroservicesDetailView.as_view(), name='IMSMAPPS_microservices_detail'),
     path('microservices/update/', views.dataupdate, name='IMSMAPPS_microservices_update'),
     path('microservice/delete/', views.datadelete, name='IMSMAPPS_projects_update'),
+    path('microservices/<id>/', views.objctmnger, name='IMSMAPPS_projects_update'),
 )
 
 urlpatterns += (
