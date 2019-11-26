@@ -18,5 +18,5 @@ if __name__ =='__main__':
 
     df.loc[df['Age'].isnull(), ['Age']] = df.apply(lambda row: find_mean_age(row['Sex'], row['Typ'][0]),
                                                    axis=1)
-qqssssss
+qqsssssss
     print(df)
